@@ -13,7 +13,7 @@ from django.views.generic import (
 from django.shortcuts import render, redirect
 from django.views.generic import View
 
-
+from blog.utils.google_drive import GoogleAPI
 
 class PhotoView(View):
     # context_object_name = "articles"
@@ -24,5 +24,6 @@ class PhotoView(View):
     #     context = super().get_context_data(**kwargs)
     #     return context
     def get(self, request):
+        context = GoogleAPI.read_spreadsheet()
         return render(request, self.template_name)
 

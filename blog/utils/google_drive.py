@@ -14,8 +14,13 @@ sheet_id = '1EL6D5Usfhf5rX2-AVz2dzgWdZnkLNcwr6EKVyKDdl94'
 sheet_name = 'export'
 url = 'https://docs.google.com/spreadsheets/d/{}/gviz/tq?tqx=out:csv&sheet={}'.format(sheet_id, sheet_name)
 
-def main():
-    """Shows basic usage of the Sheets API.
-    Prints values from a sample spreadsheet.
-    """
-    return pd.read_csv(url, usecols = ['URL Hidden'])
+class GoogleAPI():
+    def __init__(self) -> None:
+        pass
+
+    def read_spreadsheet(self, sheet_id=sheet_id):
+        """Shows basic usage of the Sheets API.
+        Prints values from a sample spreadsheet.
+        """
+        url = 'https://docs.google.com/spreadsheets/d/{}/gviz/tq?tqx=out:csv&sheet={}'.format(sheet_id, sheet_name)
+        return pd.read_csv(url, usecols = ['URL Hidden'])
