@@ -1,1 +1,40 @@
-<h1>Photo Page </h1>
+{% extends 'blog/blog_base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    {% if photos %}
+        {% for photo in photos %}
+				<div class="swiper-slide">
+					<a class="slider-category" href="{{ photo }}">
+						<div class="category-image">
+                            <img src="{{ photo }}"
+                                 class="category-image"
+                                 alt="Blog Image"
+                                 width="352" height="235"
+                             >
+                        </div>
+
+						<div class="category">
+							<div class="display-table center-text">
+								<div class="display-table-cell">
+									<h3><b>{{ category.name }}</b></h3>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div><!-- swiper-slide -->
+                {% endfor %}
+
+			</div><!-- swiper-wrapper -->
+		</div><!-- swiper-container -->
+
+	</div><!-- slider -->
+    {% else %}
+        <center><div class="alert alert-warning"><b>No Photo</b></div></center>
+    {% endif %}
+
+
+{% endblock content %}

@@ -15,6 +15,8 @@ from django.views.generic import View
 
 from blog.utils.google_drive import GoogleAPI
 
+from collections import defaultdict
+
 class PhotoView(View):
     # context_object_name = "articles"
     # paginate_by = 12
@@ -24,6 +26,8 @@ class PhotoView(View):
     #     context = super().get_context_data(**kwargs)
     #     return context
     def get(self, request):
-        context = GoogleAPI.read_spreadsheet()
-        return render(request, self.template_name)
+        context = defaultdict(list)
+        context['photos'] = GoogleAPI().read_spreadsheet()
+        print(context)
+        return render(request, self.template_name, context=context)
 

@@ -23,4 +23,8 @@ class GoogleAPI():
         Prints values from a sample spreadsheet.
         """
         url = 'https://docs.google.com/spreadsheets/d/{}/gviz/tq?tqx=out:csv&sheet={}'.format(sheet_id, sheet_name)
-        return pd.read_csv(url, usecols = ['URL Hidden'])
+        df = pd.read_csv(url)
+        return df.URL.to_list()
+
+if __name__ == '__main__':
+    GoogleAPI().read_spreadsheet()
