@@ -154,12 +154,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Email Settings (Production)
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ""
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'nguyenad92@gmail.com'
+EMAIL_HOST_PASSWORD = "password"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # CKEditor Settings
 CKEDITOR_UPLOAD_PATH = 'uploads/'

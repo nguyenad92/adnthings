@@ -52,6 +52,8 @@ from blog.views.blog.article_views import (
 # from blog.views.account.logout_view import UserLogoutView
 # from blog.views.account.login_view import UserLoginView
 
+from blog.views.gallery.photo import PhotoView
+
 app_name = "blog"
 
 urlpatterns = [
@@ -63,6 +65,13 @@ urlpatterns = [
         route='',
         view=ArticleListView.as_view(),
         name='home'
+    ),
+
+    # /gallery/
+    path(
+        route='gallery',
+        view=PhotoView.as_view(),
+        name='gallery'
     ),
 
     # /article/<str:slug>/
